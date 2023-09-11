@@ -15,9 +15,10 @@ const Detail = () => {
     try {
       const res = await fetch (`https://jsonplaceholder.typicode.com/users/${id}`);
       const data = await res.json();
-      if (data && data.length > 0) {
-        setDentista(data[0]);
+      if (data ) {
+        setDentista(data);
       }
+
     } catch (error) {
       console.log('error teching dentista:', error);
     }
@@ -31,15 +32,15 @@ const Detail = () => {
 
   return (
     <div>
-      <h1>Detail Dentist id {dentista.id}</h1>
+      <h1>Detail Dentist id {id}</h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       <div className="card">
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
         <img src='' alt='' />
-        <p>{dentista.name}</p>
-        <p>{dentista.email}</p>
-        <p>{dentista.phone}</p>
-        <p>{dentista.website}</p>
+        <p>NOMBRE: {dentista.name}</p>
+        <p>EMAIL: {dentista.email}</p>
+        <p>CEL: {dentista.phone}</p>
+        <p>URL: {dentista.website}</p>
       </div>
       <button onClick={() => navigate(-1)}>Go back</button>
     </div>
