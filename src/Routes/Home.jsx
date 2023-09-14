@@ -2,10 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../Components/Card'
 
+
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
   const [ dentistas, setDentistas ] = useState([]);
+
+
 
   const getDentistas = async () => {
     try {
@@ -23,7 +26,7 @@ const Home = () => {
 
 
   return (
-    <main className="" >
+    <main className=""  >
       <h1>Home</h1>
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */

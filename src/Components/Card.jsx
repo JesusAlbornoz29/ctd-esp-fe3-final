@@ -2,8 +2,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Style from "./Card.css"
+import { GlobalContext } from "./utils/global.context";
 
 const Card = ({ data }) => {
+  const {theme, toggleTheme} = React.useContext(GlobalContext)
+
+  const cardStyles = {
+    background: theme.background,
+    color: theme.font
+  }
 
   const addFav = ()=>{
     // Aqui iria la logica para agregar la Card en el localStorage
@@ -33,13 +40,13 @@ const Card = ({ data }) => {
   }; 
 
   return (
-    <div className="card">
+    <div className="card" style={cardStyles}>
         {/* En cada card deberan mostrar en name - username y el id */}
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
         <Link to={`/detail/${data.id}`} className="card-link">
-            <h3>ID: {data.id}</h3>
-            <p>USERNAME: {data.username}</p>
-            <p>NAME: {data.name}</p>
+            <h3 style={cardStyles}>ID: {data.id}</h3>
+            <p style={cardStyles}>USERNAME: {data.username}</p>
+            <p style={cardStyles}>NAME: {data.name}</p>
             <img src="./images/doctor.jpg" alt="img-doctor" />  
         </Link>
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
